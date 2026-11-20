@@ -1,0 +1,286 @@
+:root {
+  --ink: #171717;
+  --paper: #f3efe5;
+  --card: #fffdf7;
+  --orange: #ff5c35;
+  --yellow: #f7cf47;
+  --blue: #2f66ff;
+  --line: #171717;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 36px 18px 72px;
+  overflow-x: hidden;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(23, 23, 23, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.045) 1px, transparent 1px),
+    var(--paper);
+  background-size: 24px 24px;
+}
+
+main {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  position: relative;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 180px;
+  height: 180px;
+  right: -75px;
+  top: -54px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 12px 12px 0 var(--ink);
+}
+
+h1 {
+  width: fit-content;
+  margin: 0 0 30px;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: clamp(3.2rem, 12vw, 7rem);
+  line-height: 0.82;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  text-shadow: 4px 4px 0 var(--yellow);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 120px;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 3px solid var(--line);
+  background: var(--orange);
+  box-shadow: 10px 10px 0 var(--line);
+  transform: rotate(0.4deg);
+}
+
+form label {
+  align-self: end;
+  margin: 0 0 -6px 2px;
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+form label[for="nombre"] {
+  grid-column: 1;
+}
+
+form label[for="correo"] {
+  grid-column: 2;
+}
+
+form label[for="edad"] {
+  grid-column: 3;
+}
+
+input {
+  width: 100%;
+  height: 54px;
+  border: 3px solid var(--line);
+  border-radius: 0;
+  outline: none;
+  background: var(--card);
+  color: var(--ink);
+  font: 700 1rem Arial, sans-serif;
+  padding: 0 14px;
+  box-shadow: 4px 4px 0 rgba(23, 23, 23, 0.35);
+}
+
+input:focus {
+  background: #fff;
+  box-shadow: 7px 7px 0 var(--yellow);
+}
+
+small {
+  min-height: 18px;
+  margin: 2px 0 -8px;
+  color: #7d0d00;
+  font: 900 0.78rem Arial, sans-serif;
+}
+
+#errorNombre {
+  grid-column: 1;
+}
+
+#errorCorreo {
+  grid-column: 2;
+}
+
+#errorEdad {
+  grid-column: 3;
+}
+
+button {
+  min-height: 46px;
+  border: 3px solid var(--line);
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 5px 5px 0 var(--line);
+  font: 900 0.82rem Arial, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 120ms, box-shadow 120ms;
+}
+
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--line);
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 1px 1px 0 var(--line);
+}
+
+#btnGuardar {
+  grid-column: 1 / -1;
+  width: max-content;
+  justify-self: end;
+  margin-top: 8px;
+  padding: 0 24px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 9px;
+  font-family: Arial, sans-serif;
+}
+
+thead th {
+  padding: 12px 14px 8px;
+  border-bottom: 3px solid var(--line);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+tbody tr {
+  background: var(--card);
+  transition: transform 120ms;
+}
+
+tbody tr:hover {
+  transform: translateX(-5px);
+}
+
+th,
+td {
+  padding: 14px;
+  border-top: 3px solid var(--line);
+  border-bottom: 3px solid var(--line);
+  text-align: left;
+}
+
+th:first-child,
+td:first-child {
+  border-left: 3px solid var(--line);
+}
+
+th:last-child,
+td:last-child {
+  border-right: 3px solid var(--line);
+}
+
+td button {
+  min-height: 38px;
+  margin: 2px 4px 2px 0;
+  padding: 0 12px;
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--line);
+}
+
+.btn-eliminar {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+@media (max-width: 650px) {
+  body {
+    padding: 30px 10px 50px;
+  }
+
+  main::before {
+    width: 120px;
+    height: 120px;
+    right: -40px;
+  }
+
+  h1 {
+    max-width: 310px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  form label,
+  form label[for="nombre"],
+  form label[for="correo"],
+  form label[for="edad"],
+  #errorNombre,
+  #errorCorreo,
+  #errorEdad,
+  #btnGuardar {
+    grid-column: 1;
+  }
+
+  #btnGuardar {
+    width: 100%;
+  }
+
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  tbody tr {
+    border: 3px solid var(--line);
+  }
+
+  td {
+    border: 0;
+  }
+
+  td:first-child,
+  td:last-child {
+    border: 0;
+  }
+}
